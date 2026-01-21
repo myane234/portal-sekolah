@@ -1,37 +1,44 @@
-import React from 'react';
+import { Search } from "lucide-react";
+import logo from "../assets/school.png";
 
-const Navbar = () => {
-    return (
-        <nav style={styles.nav}>
-      <h2 style={styles.logo}>MyApp</h2>
 
-      <ul style={styles.menu}>
-        <a href="#home"><li>Home</li></a>
-        <a href="#about"><li>About</li></a>
-        <a href="#contact"><li>Contact</li></a>
-      </ul>
-    </nav>
-    )
+export default function Navbar() {
+return (
+<nav className="w-full bg-white shadow-sm">
+<div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+{/* Left */}
+<div className="flex items-center gap-10">
+{/* Logo */}
+<div className="flex items-center gap-2">
+<img 
+  src={logo} 
+  alt="Sekolah Kita Logo" 
+  className="w-10 h-10"
+/>
+<span className="font-semibold text-lg">Sekolah Kita</span>
+</div>
+
+
+{/* Menu */}
+<ul className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
+<li className="text-blue-600 cursor-pointer">Home</li>
+<li className="hover:text-blue-600 cursor-pointer">Eskul</li>
+<li className="hover:text-blue-600 cursor-pointer">Berita</li>
+<li className="hover:text-blue-600 cursor-pointer">Agenda</li>
+</ul>
+</div>
+
+
+{/* Search */}
+<div className="flex items-center gap-2 border rounded-full px-3 py-1.5 bg-gray-50">
+<Search size={18} className="text-gray-500" />
+<input
+type="text"
+placeholder="Cari..."
+className="bg-transparent outline-none text-sm"
+/>
+</div>
+</div>
+</nav>
+);
 }
-
-const styles = {
-  nav: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "16px 32px",
-    background: "#111",
-    color: "#fff",
-  },
-  logo: {
-    margin: 0,
-  },
-  menu: {
-    display: "flex",
-    gap: "24px",
-    listStyle: "none",
-    margin: 0,
-  },
-};
-
-export default Navbar;
