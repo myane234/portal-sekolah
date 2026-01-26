@@ -15,7 +15,7 @@ return (
   alt="Sekolah Kita Logo" 
   className="w-10 h-10"
 />
-<span className="font-semibold text-lg">Sekolah Kita</span>
+<span className="font-semibold text-lg">SMKN 2 Jakarta</span>
 </div>
 
 

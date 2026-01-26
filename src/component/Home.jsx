@@ -13,7 +13,7 @@ className="w-full h-full object-cover"
 
 {/* Text */}
 <div className="mt-8 bg-white rounded-2xl shadow-sm p-6">
-<h1 className="text-2xl font-bold mb-4">Selamat Datang di Portal Sekolah</h1>
+<h1 className="text-2xl font-bold mb-4">Selamat Datang di Portal SMKN 2 Jakarta</h1>
 <p className="text-gray-700 leading-relaxed">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
