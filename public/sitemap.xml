@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Halaman Utama -->
+  <url>
+    <loc>https://smkn2jkt.sch.id/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Halaman Berita -->
+  <url>
+    <loc>https://smkn2jkt.sch.id/berita</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Halaman Agenda -->
+  <url>
+    <loc>https://smkn2jkt.sch.id/agenda</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Ekstrakurikuler -->
+  <url>
+    <loc>https://smkn2jkt.sch.id/eskul</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Halaman Prestasi -->
+  <url>
+    <loc>https://smkn2jkt.sch.id/berita?prestasi</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

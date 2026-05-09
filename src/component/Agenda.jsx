@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useSEO from "../hooks/useSEO";
 
 const agendaList = [
   {
@@ -28,6 +29,11 @@ const agendaList = [
 ];
 
 export default function Agenda() {
+  useSEO(
+    "Agenda Sekolah",
+    "Jadwal dan agenda kegiatan resmi SMK Negeri 2 Jakarta. Informasi rapat, ujian, dan acara sekolah terkini."
+  );
+
   return (
     <main className="max-w-7xl mx-auto px-6 mt-8 mb-12">
       <div className="bg-white rounded-2xl shadow-sm p-6">

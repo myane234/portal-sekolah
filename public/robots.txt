@@ -1,0 +1,6 @@
+# robots.txt – Portal SMKN 2 Jakarta
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://smkn2jkt.sch.id/sitemap.xml

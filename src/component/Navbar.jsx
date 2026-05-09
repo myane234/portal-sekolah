@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/school.png";
+import logo from "../assets/school.webp";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,9 +24,9 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <img 
-                src={logo} 
-                alt="Sekolah Kita Logo" 
+              <img
+                src={logo}
+                alt="Sekolah Kita Logo"
                 className="w-8 h-8 md:w-10 md:h-10 object-contain"
               />
               <span className="font-semibold text-base md:text-lg">
@@ -61,7 +61,7 @@ export default function Navbar() {
           </form>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden text-gray-600 hover:text-blue-600 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
@@ -86,7 +86,7 @@ export default function Navbar() {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </form>
-          
+
           <ul className="flex flex-col text-gray-700 font-medium">
             <li>
               <Link to="/" className="block py-3 border-b hover:text-blue-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>

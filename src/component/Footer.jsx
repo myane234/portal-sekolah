@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
-import logo from "../assets/school.png";
+import logo from "../assets/school.webp";
 
 export default function Footer() {
   return (
@@ -69,8 +69,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 mt-4 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Portal SMKN 2 Jakarta. Hak Cipta Dilindungi.</p>
+        <div className="border-t border-gray-800 pt-8 mt-4 text-center text-gray-100 text-sm">
+          <p>&copy; {new Date().getFullYear()} Portal SMKN 2 Jakarta.</p>
         </div>
       </div>
     </footer>
