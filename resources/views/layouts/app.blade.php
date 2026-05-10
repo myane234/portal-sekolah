@@ -281,7 +281,7 @@
 <aside class="admin-sidebar">
     <div class="sidebar-brand">
         <h1>
-            <span class="brand-icon">🏫</span>
+            <img src="{{ asset('school.webp') }}" alt="Logo" class="brand-icon">
             Portal Admin
         </h1>
         <p>SMKN 2 Jakarta</p>
