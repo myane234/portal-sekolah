@@ -1,67 +1,9 @@
+import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import useSEO from "../hooks/useSEO";
+import { fetchBerita, fetchBeritaDetail } from "../utils/api";
 
-// Mock data for news and events
-const beritaList = [
-  {
-    id: "1",
-    title: "",
-    category: "prestasi",
-    date: "12 Mei 2026",
-    image: "",
-    excerpt: "",
-    content: ""
-  },
-  {
-    id: "2",
-    title: "",
-    category: "berita",
-    date: "10 Mei 2026",
-    image: "",
-    excerpt: "",
-    content: ""
-  },
-  {
-    id: "3",
-    title: "",
-    category: "eskul",
-    subCategory: "pramuka",
-    date: "05 Mei 2026",
-    image: "",
-    excerpt: "lorem ipsum dolor sit amet consectetur adipiscing elit",
-    content: "lorem ipsum dolor sit amet consectetur adipiscing elit"
-  },
-  {
-    id: "4",
-    title: "Rapat Tahunan ",
-    category: "agenda",
-    date: "15 Mei 2026",
-    image: "",
-    excerpt: "Rapat ",
-    content: "Rapat ."
-  },
-  {
-    id: "5",
-    title: "Ujian Akhir Semester Genap",
-    category: "agenda",
-    date: "20 Mei 2026",
-    image: "",
-    excerpt: "Ujian Akhir Semester Genap",
-    content: "Ujian Akhir Semester Genap"
-  },
-  {
-    id: "6",
-    title: "",
-    category: "agenda",
-    date: "10 Juni 2026",
-    image: "",
-    excerpt: "",
-    content: ""
-  }
-];
-
-function BeritaContent({ title, filteredList }) {
-  // SEO description dinamis berdasarkan konteks halaman
+function BeritaContent({ title, beritaList }) {
   const seoDescMap = {
     "Berita Terbaru": "Berita terbaru dari SMK Negeri 2 Jakarta. Informasi kegiatan, pengumuman, dan prestasi siswa SMKN 2 Jakarta.",
     "Kabar Prestasi": "Prestasi terkini siswa SMK Negeri 2 Jakarta di tingkat kota, provinsi, dan nasional.",
@@ -75,7 +17,7 @@ function BeritaContent({ title, filteredList }) {
       <div className="bg-white rounded-2xl shadow-sm p-6">
         <h1 className="text-2xl font-bold mb-8 text-gray-800 border-b pb-4">{title}</h1>
 
-        {filteredList.length === 0 ? (
+        {beritaList.length === 0 ? (
           <div className="text-center py-12">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
               <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,19 +29,25 @@ function BeritaContent({ title, filteredList }) {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredList.map((item) => (
+            {beritaList.map((item) => (
               <Link
                 key={item.id}
                 to={`/berita?id=${item.id}`}
                 className="group flex flex-col border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 bg-white"
               >
-                <div className="w-full h-48 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title || "Berita SMKN 2 Jakarta"}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                <div className="w-full h-48 overflow-hidden bg-gray-100">
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.title || "Berita SMKN 2 Jakarta"}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-gray-400">
+                      Tidak ada gambar
+                    </div>
+                  )}
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <div className="flex justify-between items-center mb-3">
@@ -107,7 +55,7 @@ function BeritaContent({ title, filteredList }) {
                     <span className="text-xs text-gray-500">{item.date}</span>
                   </div>
                   <h2 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2 line-clamp-2">{item.title}</h2>
-                  <p className="text-gray-600 text-sm line-clamp-3 mb-4">{item.excerpt}</p>
+                  <p className="text-gray-600 text-sm line-clamp-3 mb-4">{item.excerpt || "Tidak ada ringkasan tersedia."}</p>
                   <div className="mt-auto pt-4 border-t border-gray-100">
                     <span className="text-blue-600 text-sm font-medium group-hover:underline">Baca selengkapnya &rarr;</span>
                   </div>
@@ -121,7 +69,6 @@ function BeritaContent({ title, filteredList }) {
   );
 }
 
-// Detail view dengan SEO per artikel
 function BeritaDetail({ detail }) {
   useSEO(
     detail.title || "Detail Berita",
@@ -151,7 +98,7 @@ function BeritaDetail({ detail }) {
           </div>
         )}
         <div className="prose max-w-none text-gray-700 leading-relaxed text-lg">
-          <p>{detail.content}</p>
+          <p>{detail.content || "Konten belum tersedia."}</p>
         </div>
       </article>
     </main>
@@ -160,6 +107,10 @@ function BeritaDetail({ detail }) {
 
 export default function Berita() {
   const [searchParams] = useSearchParams();
+  const [beritaList, setBeritaList] = useState([]);
+  const [detail, setDetail] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const id = searchParams.get("id");
   const eskul = searchParams.get("eskul");
@@ -167,34 +118,71 @@ export default function Berita() {
   const agenda = searchParams.get("agenda");
   const search = searchParams.get("search");
 
-  // Jika ada ID, tampilkan detail
-  if (id) {
-    const detail = beritaList.find(b => b.id === id);
-    if (!detail) return <div className="p-8 text-center">Berita tidak ditemukan</div>;
-    return <BeritaDetail detail={detail} />;
-  }
+  useEffect(() => {
+    setError(null);
+    setIsLoading(true);
 
-  // Jika tidak ada ID, tampilkan list
-  let filteredList = beritaList;
-  let title = "Berita Terbaru";
+    if (id) {
+      fetchBeritaDetail(id)
+        .then((data) => {
+          setDetail(data);
+          setBeritaList([]);
+        })
+        .catch((err) => setError(err.message || "Berita tidak dapat dimuat."))
+        .finally(() => setIsLoading(false));
+      return;
+    }
 
-  if (search) {
-    const query = search.toLowerCase();
-    filteredList = beritaList.filter(
-      b => b.title.toLowerCase().includes(query) || b.content.toLowerCase().includes(query)
+    const params = {};
+    if (search) params.search = search;
+    else if (eskul) {
+      params.category = "eskul";
+      params.sub_category = eskul;
+    } else if (prestasi !== null) {
+      params.category = "prestasi";
+    } else if (agenda !== null) {
+      params.category = "agenda";
+    }
+
+    fetchBerita(params)
+      .then((data) => {
+        setBeritaList(data);
+        setDetail(null);
+      })
+      .catch((err) => setError(err.message || "Berita tidak dapat dimuat."))
+      .finally(() => setIsLoading(false));
+  }, [id, eskul, prestasi, agenda, search]);
+
+  if (isLoading) {
+    return (
+      <main className="max-w-7xl mx-auto px-6 mt-8 mb-12">
+        <div className="bg-white rounded-2xl shadow-sm p-6 text-center text-gray-500">Memuat berita...</div>
+      </main>
     );
-    title = `Hasil Pencarian: "${search}"`;
-  } else if (eskul) {
-    filteredList = beritaList.filter(b => b.category === "eskul" && b.subCategory === eskul);
-    title = `Berita Ekstrakurikuler: ${eskul.toUpperCase()}`;
-  } else if (prestasi !== null) {
-    filteredList = beritaList.filter(b => b.category === "prestasi");
-    title = "Kabar Prestasi";
-  } else if (agenda !== null) {
-    filteredList = beritaList.filter(b => b.category === "agenda");
-    title = "Agenda Kegiatan";
   }
 
-  return <BeritaContent title={title} filteredList={filteredList} />;
+  if (error) {
+    return (
+      <main className="max-w-7xl mx-auto px-6 mt-8 mb-12">
+        <div className="bg-white rounded-2xl shadow-sm p-6 text-center text-red-600">{error}</div>
+      </main>
+    );
+  }
+
+  if (id) {
+    return detail ? <BeritaDetail detail={detail} /> : <div className="p-8 text-center">Berita tidak ditemukan</div>;
+  }
+
+  const title = search
+    ? `Hasil Pencarian: "${search}"`
+    : eskul
+    ? `Berita Ekstrakurikuler: ${eskul.toUpperCase()}`
+    : prestasi !== null
+    ? "Kabar Prestasi"
+    : agenda !== null
+    ? "Agenda Kegiatan"
+    : "Berita Terbaru";
+
+  return <BeritaContent title={title} beritaList={beritaList} />;
 }
 

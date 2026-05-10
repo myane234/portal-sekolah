@@ -41,6 +41,7 @@ export default function Navbar() {
             <li><Link to="/eskul" className="hover:text-blue-600 cursor-pointer transition-colors duration-200">Eskul</Link></li>
             <li><Link to="/berita" className="hover:text-blue-600 cursor-pointer transition-colors duration-200">Berita</Link></li>
             <li><Link to="/agenda" className="hover:text-blue-600 cursor-pointer transition-colors duration-200">Agenda</Link></li>
+            <li><Link to="/cs" className="hover:text-blue-600 cursor-pointer transition-colors duration-200">CS Bot</Link></li>
           </ul>
         </div>
 
@@ -99,6 +100,9 @@ export default function Navbar() {
             </li>
             <li>
               <Link to="/agenda" className="block py-3 hover:text-blue-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Agenda</Link>
+            </li>
+            <li>
+              <Link to="/cs" className="block py-3 hover:text-blue-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>CS Bot</Link>
             </li>
           </ul>
         </div>

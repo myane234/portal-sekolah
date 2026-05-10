@@ -4,6 +4,7 @@ import Home from "./component/Home.jsx";
 import Eskul from "./component/Eskul.jsx";
 import Berita from "./component/Berita.jsx";
 import Agenda from "./component/Agenda.jsx";
+import CSBot from "./component/CSBot.jsx";
 import Footer from "./component/Footer.jsx";
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="/eskul" element={<Eskul />} />
             <Route path="/berita" element={<Berita />} />
             <Route path="/agenda" element={<Agenda />} />
+            <Route path="/cs" element={<CSBot />} />
           </Routes>
         </div>
         <Footer />
