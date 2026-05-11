@@ -19,8 +19,8 @@
         <!-- Verification Code -->
         <div class="mt-4">
             <x-input-label for="verification_code" :value="__('Kode Verifikasi')" />
-            <x-text-input id="verification_code" class="block mt-1 w-full" type="text" name="verification_code" :value="old('verification_code')" required autofocus autocomplete="off" placeholder="9910901" />
-            <p class="text-sm text-gray-500 mt-1">Masukkan kode verifikasi statis: <strong>9910901</strong></p>
+            <x-text-input id="verification_code" class="block mt-1 w-full" type="text" name="verification_code" :value="old('verification_code')" required autofocus autocomplete="off" placeholder="Masukkan kode verif" />
+            <p class="text-sm text-gray-500 mt-1">Masukkan kode verifikasi</p>
             <x-input-error :messages="$errors->get('verification_code')" class="mt-2" />
         </div>
 

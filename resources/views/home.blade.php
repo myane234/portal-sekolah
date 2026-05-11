@@ -32,22 +32,36 @@
                     <a href="#eskul" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Ekstrakurikuler</a>
                     <a href="#agenda" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Agenda</a>
                 </nav>
-                <div class="flex items-center space-x-4">
-                    @auth
-                        <a href="{{ route('dashboard') }}" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Login</a>
-                        <a href="{{ route('register') }}" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Daftar</a>
-                    @endauth
-                </div>
+                <!-- Kontainer Navigasi Kanan -->
+<div class="flex items-center space-x-2 md:space-x-4">
+    @if (Route::has('login'))
+        @auth
+            <!-- Jika User Sudah Login -->
+            <a href="{{ route('dashboard') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+                Dashboard
+            </a>
+        @else
+            <!-- Jika User Belum Login: Tombol Login dan Daftar Samping-Sampingan -->
+            <a href="{{ route('login') }}" class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                Login
+            </a>
+            
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                    Daftar
+                </a>
+            @endif
+        @endauth
+    @endif
+</div>
                 <!-- Mobile menu button -->
-                <div class="md:hidden">
+                <!-- <div class="md:hidden">
                     <button type="button" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700" id="mobile-menu-button">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- Mobile menu -->
@@ -189,4 +203,3 @@
     </script>
 </body>
 </html></content>
-<parameter name="filePath">d:\portal-sekolah\portal-sekolah-admin\resources\views\home.blade.php
