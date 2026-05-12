@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://smkn2jkt.sch.id/sitemap.xml
+Sitemap: https://tugas.faaruq.com/sitemap.xml

@@ -1,4 +1,5 @@
 import useSEO from "../hooks/useSEO";
+import { useRef, useEffect } from "react";
 
 export default function Home() {
   useSEO(
@@ -6,23 +7,61 @@ export default function Home() {
     "Portal resmi SMK Negeri 2 Jakarta. Temukan berita terbaru, agenda sekolah, ekstrakurikuler, dan prestasi siswa SMKN 2 Jakarta – Gambir, Jakarta Pusat."
   );
 
+  const scrollRef = useRef(null);
+
+  // Fungsi Gulir Otomatis
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollRef.current.scrollBy({ left: clientWidth, behavior: "smooth" });
+        }
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+  
+
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pb-16 space-y-14">
+      
+<div className="relative -mx-4 sm:-mx-6 lg:-mx-8 mb-8 overflow-hidden shadow-xl bg-slate-200 sm:rounded-[2rem]">
+      
+      <div 
+        ref={scrollRef}
+        className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar w-full h-[300px] sm:h-[450px] lg:h-[550px]"
+      >
+        
+        {/* Slide 1 */}
+        <div className="w-full flex-shrink-0 h-full snap-center overflow-hidden">
+          <img
+            src="/HomeKeluargaBesar.webp"
+            alt="Keluarga Besar SMKN 2"
+            className="w-full h-full object-cover object-center block"
+            fetchpriority="high"
+          />
+        </div>
 
-      {/* ── Hero Banner ── */}
-      <div className="rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-slate-200">
-        <img
-          src="/HomeKeluargaBesar.webp"
-          alt="Keluarga Besar SMK Negeri 2 Jakarta"
-          className="w-full h-80 object-cover sm:h-[420px]"
-          width="1400"
-          height="510"
-          loading="eager"
-          fetchpriority="high"
-        />
+
+        <div className="w-full flex-shrink-0 h-full snap-center overflow-hidden">
+          <img
+            src="/kepsek.png" 
+            alt="Foto Kepala Sekolah"
+            className="w-full h-full object-cover object-top block"
+          />
+        </div>
+
       </div>
+  {/* Indikator (Sekarang lebih rapi) */}
+  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+    <div className="w-6 h-1 rounded-full bg-white shadow-sm"></div>
+    <div className="w-2 h-1 rounded-full bg-white/40 shadow-sm"></div>
+  </div>
+</div>
 
-      {/* ── Hero Text ── */}
       <section className="grid gap-10 lg:grid-cols-[1.7fr_.3fr] items-center">
         <div className="space-y-6">
           <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-700">
@@ -55,7 +94,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Sambutan Kepala Sekolah ── */}
+
       <section className="rounded-3xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 sm:p-10 shadow-xl">
         <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-start">
 
@@ -63,14 +102,14 @@ export default function Home() {
           <div className="flex-shrink-0 flex flex-col items-center gap-3">
             <div className="w-36 h-44 sm:w-40 sm:h-52 rounded-2xl overflow-hidden ring-4 ring-white/30 shadow-lg bg-blue-500">
               <img
-                src="https://smkn2jkt.sch.id/wp-content/uploads/2025/02/kepsek-baru-terang.png"
+                src="/kepsek.png"
                 alt="Foto Kepala Sekolah SMKN 2 Jakarta"
                 className="w-full h-full object-cover object-top"
                 width="160"
                 height="208"
                 loading="lazy"
                 onError={(e) => {
-                  /* Fallback placeholder jika foto belum tersedia */
+    
                   e.currentTarget.style.display = "none";
                   e.currentTarget.parentElement.innerHTML = `
                     <div class="w-full h-full flex flex-col items-center justify-center gap-2 text-white/60">

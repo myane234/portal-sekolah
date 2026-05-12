@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://api.faaruq.com/";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://api.faaruq.com";
 
 async function fetchApi(path) {
   const response = await fetch(`${API_BASE_URL}${path}`);

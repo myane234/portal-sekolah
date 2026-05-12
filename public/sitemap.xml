@@ -3,7 +3,7 @@
 
   <!-- Halaman Utama -->
   <url>
-    <loc>https://smkn2jkt.sch.id/</loc>
+    <loc>https://tugas.faaruq.com/</loc>
     <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- Halaman Berita -->
   <url>
-    <loc>https://smkn2jkt.sch.id/berita</loc>
+    <loc>https://tugas.faaruq.com/berita</loc>
     <lastmod>2026-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
 
   <!-- Halaman Agenda -->
   <url>
-    <loc>https://smkn2jkt.sch.id/agenda</loc>
+    <loc>https://tugas.faaruq.com/agenda</loc>
     <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +27,7 @@
 
   <!-- Halaman Ekstrakurikuler -->
   <url>
-    <loc>https://smkn2jkt.sch.id/eskul</loc>
+    <loc>https://tugas.faaruq.com/eskul</loc>
     <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -35,7 +35,7 @@
 
   <!-- Halaman Prestasi -->
   <url>
-    <loc>https://smkn2jkt.sch.id/berita?prestasi</loc>
+    <loc>https://tugas.faaruq.com/berita?prestasi</loc>
     <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
