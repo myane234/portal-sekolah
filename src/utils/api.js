@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://100.88.91.73:8000/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://api.faaruq.com/";
 
 async function fetchApi(path) {
   const response = await fetch(`${API_BASE_URL}${path}`);
