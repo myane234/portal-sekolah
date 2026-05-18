@@ -1,7 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://api.faaruq.com/api";
 
-async function fetchApi(path) {
-  const response = await fetch(`${API_BASE_URL}${path}`);
+async function fetchApi(path, options = {}) {
+  const response = await fetch(`${API_BASE_URL}${path}`, options);
 
   if (!response.ok) {
     const errorText = await response.text();
@@ -22,6 +22,11 @@ export function fetchAgenda() {
 export async function fetchAgendaDetail(id) {
   const data = await fetchApi(`/agenda?id=${encodeURIComponent(id)}`);
   return Array.isArray(data) ? data[0] || null : data;
+}
+
+export function fetchJurusan(params = {}) {
+  const queryString = new URLSearchParams(params).toString();
+  return fetchApi(`/jurusan${queryString ? `?${queryString}` : ''}`);
 }
 
 export function fetchBerita(params = {}) {
