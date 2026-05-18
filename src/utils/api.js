@@ -19,6 +19,11 @@ export function fetchAgenda() {
   return fetchApi('/agenda');
 }
 
+export async function fetchAgendaDetail(id) {
+  const data = await fetchApi(`/agenda?id=${encodeURIComponent(id)}`);
+  return Array.isArray(data) ? data[0] || null : data;
+}
+
 export function fetchBerita(params = {}) {
   const queryString = new URLSearchParams(params).toString();
   return fetchApi(`/berita${queryString ? `?${queryString}` : ''}`);

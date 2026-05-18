@@ -38,22 +38,22 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 border-b border-gray-700 pb-2 inline-block">Media Sosial</h3>
             <div className="flex flex-col gap-4 mt-2">
-              <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:text-blue-400 transition-colors">
+              <a href="https://www.instagram.com/smkn2jkt_official?igsh=emUzZHU1eXJvNW9q" className="flex items-center gap-3 text-gray-400 hover:text-white hover:text-blue-400 transition-colors">
                 <Instagram size={22} />
                 <span>@smkn2jakarta</span>
               </a>
-              <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.tiktok.com/@smkn2jkt_official?_r=1&_t=ZS-96SF23nuLif" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
                 {/* Custom TikTok SVG since it's not in standard lucide-react */}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
                 </svg>
                 <span>@smkn2jkt_official</span>
               </a>
-              <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-blue-500 transition-colors">
+              <a href="https://web.facebook.com/smkn2jakarta/?_rdc=1&_rdr#" className="flex items-center gap-3 text-gray-400 hover:text-blue-500 transition-colors">
                 <Facebook size={22} />
                 <span>SMK Negeri 2 Jakarta</span>
               </a>
-              <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-red-500 transition-colors">
+              <a href="https://youtube.com/@smkn2jkt?si=qo0A4eQwgxmMX4Be" className="flex items-center gap-3 text-gray-400 hover:text-red-500 transition-colors">
                 <Youtube size={22} />
                 <span>SMKN 2 Jakarta Official</span>
               </a>
