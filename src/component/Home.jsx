@@ -28,39 +28,18 @@ export default function Home() {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pb-16 space-y-14">
       
-<div className="relative -mx-4 sm:-mx-6 lg:-mx-8 mb-8 overflow-hidden shadow-xl bg-slate-200 sm:rounded-[2rem]">
-      
-      <div 
-        ref={scrollRef}
-        className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar w-full h-[300px] sm:h-[450px] lg:h-[550px]"
-      >
-        
-        {/* Slide 1 */}
-        <div className="w-full flex-shrink-0 h-full snap-center overflow-hidden">
-          <img
-            src="/HomeKeluargaBesar.webp"
-            alt="Keluarga Besar SMKN 2"
-            className="w-full h-full object-cover object-center block"
-            fetchpriority="high"
-          />
-        </div>
-
-
-        <div className="w-full flex-shrink-0 h-full snap-center overflow-hidden">
-          <img
-            src="/kepsek.png" 
-            alt="Foto Kepala Sekolah"
-            className="w-full h-full object-cover object-top block"
-          />
-        </div>
-
+        <div className="rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-slate-200">
+        <img
+          src="/HomeKeluargaBesar.webp"
+          alt="Keluarga Besar SMK Negeri 2 Jakarta"
+          className="w-full h-80 object-cover sm:h-[420px]"
+          width="1400"
+          height="510"
+          loading="eager"
+          fetchpriority="high"
+        />
       </div>
-  {/* Indikator (Sekarang lebih rapi) */}
-  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
-    <div className="w-6 h-1 rounded-full bg-white shadow-sm"></div>
-    <div className="w-2 h-1 rounded-full bg-white/40 shadow-sm"></div>
-  </div>
-</div>
+      
 
       <section className="grid gap-10 lg:grid-cols-[1.7fr_.3fr] items-center">
         <div className="space-y-6">
