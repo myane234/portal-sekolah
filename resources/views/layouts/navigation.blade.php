@@ -85,6 +85,9 @@
             <x-responsive-nav-link :href="route('admin.eskul.index')" :active="request()->routeIs('admin.eskul.*')">
                 {{ __('Eskul') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.jurusan.index')" :active="request()->routeIs('admin.jurusan.*')">
+                {{ __('Jurusan') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.agenda.index')" :active="request()->routeIs('admin.agenda.*')">
                 {{ __('Agenda') }}
             </x-responsive-nav-link>

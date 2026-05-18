@@ -40,6 +40,14 @@ Route::middleware('auth')->group(function () {
         'update' => 'admin.agenda.update',
         'destroy' => 'admin.agenda.destroy',
     ]);
+    Route::resource('admin/jurusan', \App\Http\Controllers\Admin\JurusanController::class)->names([
+        'index' => 'admin.jurusan.index',
+        'create' => 'admin.jurusan.create',
+        'store' => 'admin.jurusan.store',
+        'edit' => 'admin.jurusan.edit',
+        'update' => 'admin.jurusan.update',
+        'destroy' => 'admin.jurusan.destroy',
+    ]);
 });
 
 require __DIR__.'/auth.php';
