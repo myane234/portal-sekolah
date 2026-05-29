@@ -23,12 +23,12 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-  
+
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pb-16 space-y-14">
-      
-        <div className="rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-slate-200">
+
+      <div className="rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-slate-200">
         <img
           src="/HomeKeluargaBesar.webp"
           alt="Keluarga Besar SMK Negeri 2 Jakarta"
@@ -39,7 +39,7 @@ export default function Home() {
           fetchpriority="high"
         />
       </div>
-      
+
 
       <section className="grid gap-10 lg:grid-cols-[1.7fr_.3fr] items-center">
         <div className="space-y-6">
@@ -52,7 +52,7 @@ export default function Home() {
               Selamat datang di portal resmi SMKN 2 Jakarta
             </h1>
             <p className="text-base sm:text-lg text-slate-600 leading-8">
-             SMKN 2 JAKARTA merupakan salah satu sekolah jenjang SMK berstatus Negeri yang berada di wilayah Kec. Gambir, Kota Jakarta Pusat, D.K.I. Jakarta. SMKN 2 JAKARTA didirikan pada tanggal 1 Januari 1970 dengan Nomor SK Pendirian 23532-58 yang berada dalam naungan Kementerian Pendidikan dan Kebudayaan. Dalam kegiatan pembelajaran, sekolah yang memiliki 693 siswa ini dibimbing oleh 38 guru yang profesional di bidangnya. Kepala Sekolah SMKN 2 JAKARTA saat ini adalah Murni Astuti. Operator yang bertanggung jawab adalah Bambang Hermawan.SMKN 2 JAKARTA merupakan salah satu sekolah jenjang SMK di wilayah Kota Jakarta Pusat yang menawarkan pendidikan berkualitas dengan terakreditasi A dan sertifikasi ISO 9001:2008. Dengan adanya keberadaan SMKN 2 JAKARTA, diharapkan dapat memberikan kontribusi dalam mencerdaskan anak bangsa di wilayah Kec. Gambir, Kota Jakarta Pusat.
+              SMKN 2 JAKARTA merupakan salah satu sekolah jenjang SMK berstatus Negeri yang berada di wilayah Kec. Gambir, Kota Jakarta Pusat, D.K.I. Jakarta. SMKN 2 JAKARTA didirikan pada tanggal 1 Januari 1970 dengan Nomor SK Pendirian 23532-58 yang berada dalam naungan Kementerian Pendidikan dan Kebudayaan. Dalam kegiatan pembelajaran, sekolah yang memiliki 693 siswa ini dibimbing oleh 38 guru yang profesional di bidangnya. Kepala Sekolah SMKN 2 JAKARTA saat ini adalah Murni Astuti. Operator yang bertanggung jawab adalah Bambang Hermawan.SMKN 2 JAKARTA merupakan salah satu sekolah jenjang SMK di wilayah Kota Jakarta Pusat yang menawarkan pendidikan berkualitas dengan terakreditasi A dan sertifikasi ISO 9001:2008. Dengan adanya keberadaan SMKN 2 JAKARTA, diharapkan dapat memberikan kontribusi dalam mencerdaskan anak bangsa di wilayah Kec. Gambir, Kota Jakarta Pusat.
             </p>
           </div>
 
@@ -81,14 +81,14 @@ export default function Home() {
           <div className="flex-shrink-0 flex flex-col items-center gap-3">
             <div className="w-36 h-44 sm:w-40 sm:h-52 rounded-2xl overflow-hidden ring-4 ring-white/30 shadow-lg bg-blue-500">
               <img
-                src="/kepsek.png"
-                alt="Foto Kepala Sekolah SMKN 2 Jakarta"
+                src="/Kepsek2030.jpeg"
+                alt="Foto Kepala Sekolah SMKN 2 Jakarta 2030"
                 className="w-full h-full object-cover object-top"
                 width="160"
                 height="208"
                 loading="lazy"
                 onError={(e) => {
-    
+
                   e.currentTarget.style.display = "none";
                   e.currentTarget.parentElement.innerHTML = `
                     <div class="w-full h-full flex flex-col items-center justify-center gap-2 text-white/60">
@@ -101,8 +101,8 @@ export default function Home() {
               />
             </div>
             <div className="text-center">
-              <p className="text-white font-semibold text-sm leading-tight">Dra. MURNI ASTUTI, MM</p>
-              <p className="text-blue-200 text-xs mt-0.5">NIP. 196602141990032003</p>
+              <p className="text-white font-semibold text-sm leading-tight">Sukastriyo, M.Kom</p>
+              <p className="text-blue-200 text-xs mt-0.5">NIP. 197308031995121003</p>
             </div>
           </div>
 
@@ -110,7 +110,7 @@ export default function Home() {
           <div className="flex-1 space-y-4">
             <div>
               <p className="text-blue-200 text-sm font-semibold uppercase tracking-widest">Sambutan</p>
-              <h2 className="text-white text-2xl sm:text-3xl font-bold mt-1">Kepala Sekolah</h2>
+              <h2 className="text-white text-2xl sm:text-3xl font-bold mt-1">Kepala Sekolah 2030</h2>
             </div>
             <p className="text-blue-100 leading-relaxed text-sm sm:text-base">
               Selamat datang di portal resmi SMK Negeri 2 Jakarta. Kami berkomitmen untuk mencetak
