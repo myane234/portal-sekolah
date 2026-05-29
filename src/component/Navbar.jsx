@@ -100,7 +100,10 @@ export default function Navbar() {
               <Link to="/berita" className="block py-3 border-b hover:text-blue-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Berita</Link>
             </li>
             <li>
-              <Link to="/agenda" className="block py-3 hover:text-blue-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Agenda</Link>
+              <Link to="/agenda" className="block py-3 border-b hover:text-blue-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Agenda</Link>
+            </li>
+            <li>
+              <Link to="/jurusan" className="block py-3 border-b hover:text-blue-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Jurusan</Link>
             </li>
             <li>
               <Link to="/cs" className="block py-3 hover:text-blue-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>CS Bot</Link>
