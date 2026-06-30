@@ -51,13 +51,6 @@ export default function Jurusan() {
                 </div>
                 <div className="p-6">
                   <h2 className="text-xl font-bold text-gray-900 mb-2">{jurusan.name}</h2>
-                  <div className="text-sm text-gray-500 mb-4">
-                    <p>{jurusan.created_at ? `Dibuat: ${jurusan.created_at}` : "Tanggal dibuat belum tersedia"}</p>
-                    <p>{jurusan.updated_at ? `Terakhir diubah: ${jurusan.updated_at}` : "Tanggal update belum tersedia"}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-xs font-semibold uppercase tracking-wide">ID: {jurusan.id}</span>
-                  </div>
                 </div>
               </div>
             ))}

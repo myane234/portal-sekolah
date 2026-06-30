@@ -7,23 +7,6 @@ export default function Home() {
     "Portal resmi SMK Negeri 2 Jakarta. Temukan berita terbaru, agenda sekolah, ekstrakurikuler, dan prestasi siswa SMKN 2 Jakarta – Gambir, Jakarta Pusat."
   );
 
-  const scrollRef = useRef(null);
-
-  // Fungsi Gulir Otomatis
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (scrollRef.current) {
-        const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current;
-        if (scrollLeft + clientWidth >= scrollWidth - 10) {
-          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          scrollRef.current.scrollBy({ left: clientWidth, behavior: "smooth" });
-        }
-      }
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pb-16 space-y-14">
@@ -39,7 +22,6 @@ export default function Home() {
           fetchpriority="high"
         />
       </div>
-
 
       <section className="grid gap-10 lg:grid-cols-[1.7fr_.3fr] items-center">
         <div className="space-y-6">
@@ -106,11 +88,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Teks sambutan */}
           <div className="flex-1 space-y-4">
             <div>
               <p className="text-blue-200 text-sm font-semibold uppercase tracking-widest">Sambutan</p>
-              <h2 className="text-white text-2xl sm:text-3xl font-bold mt-1">Kepala Sekolah 2030</h2>
+              <h2 className="text-white text-2xl sm:text-3xl font-bold mt-1">Kepala Sekolah</h2>
             </div>
             <p className="text-blue-100 leading-relaxed text-sm sm:text-base">
               Selamat datang di portal resmi SMK Negeri 2 Jakarta. Kami berkomitmen untuk mencetak
@@ -118,19 +99,14 @@ export default function Home() {
               Dengan dukungan fasilitas modern dan tenaga pendidik profesional, SMKN 2 Jakarta
               terus berinovasi demi masa depan siswa yang lebih cerah.
             </p>
-            <p className="text-blue-100 leading-relaxed text-sm sm:text-base">
-              Semoga portal ini menjadi jembatan informasi yang bermanfaat bagi seluruh warga
-              sekolah, orang tua, dan masyarakat luas. Mari bersama membangun pendidikan kejuruan
-              yang unggul dan berdaya saing tinggi.
-            </p>
             <p className="text-white font-semibold text-sm italic">
-              — Kepala SMK Negeri 2 Jakarta
+              — Kepala Sekolah SMK Negeri 2 Jakarta
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── Info Cards ── */}
+    
       <section className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
 
         {/* Card 1
@@ -156,51 +132,59 @@ export default function Home() {
           </div>
         </div> */}
 
-        {/* Card 2 */}
-        <div className="group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm overflow-hidden transition hover:shadow-md hover:-translate-y-0.5">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          <div className="relative space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-emerald-100 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-              </svg>
-            </div>
-            <h2 className="text-lg font-bold text-slate-900">Agenda & Kegiatan</h2>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              Pantau jadwal kegiatan sekolah, acara ekstrakurikuler, ujian, dan hari libur nasional
-              dalam satu kalender yang terorganisir. Jangan sampai ketinggalan satu pun!
-            </p>
-            <a href="/agenda" className="inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition">
-              Lihat Agenda
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
+        {/* Card 2 - Agenda & Kegiatan */}
+<div className="group relative rounded-3xl bg-slate-50 p-7 transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-emerald-100/50 border border-transparent hover:border-slate-100 overflow-hidden">
+  {/* Aksen Garis Desainer di Pojok Kanan Atas */}
+  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-200/40 to-transparent rounded-bl-full transition-all duration-500 group-hover:scale-150" />
+  
+  <div className="relative flex flex-col h-full justify-between space-y-6">
+    <div>
+      
+      <h2 className="text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-emerald-700 transition-colors">
+        Agenda & Kegiatan
+      </h2>
+      
+      <p className="mt-2.5 text-slate-500 text-sm leading-relaxed font-medium">
+        Pantau jadwal kegiatan sekolah, acara ekstrakurikuler, ujian, dan hari libur nasional.
+      </p>
+    </div>
+    <a href="/agenda" className="inline-flex items-center justify-between w-full pt-4 border-t border-slate-200/60 text-sm font-bold text-slate-800 hover:text-emerald-600 transition group/btn">
+      <span>Eksplor Kalender</span>
+      <div className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-100 transition-all group-hover/btn:bg-emerald-600 group-hover/btn:text-white group-hover/btn:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </div>
+    </a>
+  </div>
+</div>
 
-        {/* Card 3 */}
-        <div className="group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm overflow-hidden transition hover:shadow-md hover:-translate-y-0.5 sm:col-span-2 xl:col-span-1">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          <div className="relative space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-amber-100 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-              </svg>
-            </div>
-            <h2 className="text-lg font-bold text-slate-900">Berita Terkini</h2>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              Dapatkan liputan terbaru seputar prestasi siswa, kegiatan sekolah, pengumuman penting,
-              dan informasi penerimaan peserta didik baru langsung dari sumbernya.
-            </p>
-            <a href="/berita" className="inline-flex items-center gap-1 text-sm font-semibold text-amber-600 hover:text-amber-700 transition">
-              Baca Berita
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
+
+<div className="group relative rounded-3xl bg-slate-50 p-7 transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-amber-100/50 border border-transparent hover:border-slate-100 overflow-hidden sm:col-span-2 xl:col-span-1">
+  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-200/40 to-transparent rounded-bl-full transition-all duration-500 group-hover:scale-150" />
+  
+  <div className="relative flex flex-col h-full justify-between space-y-6">
+    <div>
+      
+      <h2 className="text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-amber-700 transition-colors">
+        Berita Terkini
+      </h2>
+      
+      <p className="mt-2.5 text-slate-500 text-sm leading-relaxed font-medium">
+        Dapatkan liputan terbaru seputar prestasi siswa, pengumuman penting, dan informasi penerimaan murid baru.
+      </p>
+    </div>
+
+    <a href="/berita" className="inline-flex items-center justify-between w-full pt-4 border-t border-slate-200/60 text-sm font-bold text-slate-800 hover:text-amber-600 transition group/btn">
+      <span>Baca Artikel</span>
+      <div className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center border border-slate-100 transition-all group-hover/btn:bg-amber-600 group-hover/btn:text-white group-hover/btn:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </div>
+    </a>
+  </div>
+</div>
 
       </section>
 

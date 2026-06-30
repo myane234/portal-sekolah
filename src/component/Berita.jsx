@@ -9,7 +9,7 @@ function BeritaContent({ title, beritaList }) {
     "Kabar Prestasi": "Prestasi terkini siswa SMK Negeri 2 Jakarta di tingkat kota, provinsi, dan nasional.",
     "Agenda Kegiatan": "Agenda dan jadwal kegiatan resmi SMK Negeri 2 Jakarta.",
   };
-  const seoDesc = seoDescMap[title] || `${title} – Portal SMKN 2 Jakarta`;
+  const seoDesc = seoDescMap[title] || `${title} - Portal SMKN 2 Jakarta`;
   useSEO(title, seoDesc);
 
   return (
